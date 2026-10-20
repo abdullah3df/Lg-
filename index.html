@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>مجسم ودليل مايكرويف LG MH 6565 CPB الواقعي</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Cairo', sans-serif; background-color: #090b10; color: #f1f5f9; }
+    
+    /* Realistic 7-Segment Blue/White LED Glow */
+    .led-display {
+      font-family: 'Courier New', monospace;
+      color: #e0f2fe;
+      text-shadow: 0 0 8px #38bdf8, 0 0 18px #0284c7, 0 0 28px #0369a1;
+      letter-spacing: 3px;
+    }
+
+    /* Realistic Smoked Black Glass Front */
+    .glass-panel {
+      background: linear-gradient(145deg, #16181d 0%, #07080a 55%, #111318 100%);
+      box-shadow: inset 0 1px 1px rgba(255,255,255,0.12), 0 20px 40px rgba(0,0,0,0.85);
+    }
+
+    /* Metallic Brushed Rotary Dial */
+    .rotary-knob {
+      background: conic-gradient(
+        from 45deg,
+        #1f2124, #4b4f56, #1c1e21, #52565e,
+        #181a1d, #484c52, #1f2124
+      );
+      box-shadow: 0 8px 18px rgba(0,0,0,0.9), inset 0 1px 2px rgba(255,255,255,0.3);
+      transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    /* Touch Icon Highlight Animation */
+    .touch-zone {
+      transition: all 0.25s ease;
+      border: 1.5px solid transparent;
+    }
+    .touch-zone.active-glow {
+      border-color: #22c55e;
+      background: rgba(34, 197, 94, 0.14);
+      box-shadow: 0 0 18px rgba(34, 197, 94, 0.55);
+      transform: scale(1.05);
+    }
+
+    @keyframes pulse-ring {
+      0% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); }
+      70% { box-shadow: 0 0 0 10px rgba(34, 197, 94, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+    }
+    .pulse-target {
+      animation: pulse-ring 1.6s infinite;
+    }
+
+    .tab-btn.active {
+      background-color: #0284c7;
+      color: white;
+      border-color: #38bdf8;
+    }
+  </style>
+</head>
+<body class="min-h-screen pb-16">
+
+  <!-- Header -->
+  <header class="bg-slate-900/95 border-b border-slate-800 sticky top-0 z-50 px-3 py-2.5 shadow-lg backdrop-blur">
+    <div class="max-w-xl mx-auto flex items-center justify-between">
+      <div>
+        <h1 class="text-sm sm:text-base font-black text-white">LG NeoChef <span class="text-sky-400">MH 6565 CPB</span></h1>
+        <p class="text-[11px] text-slate-400">مجسم مطابق للواقع 100% (اليسار يسار واليمين يمين) + بيانات PDF</p>
+      </div>
+      <div class="flex gap-1.5">
+        <button onclick="toggleSpecsModal()" class="bg-slate-800 hover:bg-slate-700 border border-slate-600 text-[11px] font-bold px-2.5 py-1.5 rounded-lg text-amber-300">
+          📄 مواصفات PDF
+        </button>
+        <button onclick="showAllPrograms()" class="bg-sky-600 hover:bg-sky-500 text-[11px] font-bold px-2.5 py-1.5 rounded-lg text-white">
+          الـ 43 برنامج
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-xl mx-auto px-3 mt-4 space-y-5">
+
+    <!-- ================= REALISTIC 3D/2D MICROWAVE MODEL (FORCED LTR FOR PHYSICAL ACCURACY) ================= -->
+    <section class="bg-slate-900/80 border border-slate-800 rounded-3xl p-3 sm:p-4 shadow-2xl">
+      <div class="flex items-center justify-between mb-2 text-xs">
+        <span class="font-bold text-slate-300">👇 المجسم الواقعي (اضغط على أي زر في المايكرويف أو اختر أكلة من الأسفل):</span>
+        <span id="viewToggleBtn" onclick="toggleFullDoor()" class="cursor-pointer text-sky-400 hover:underline text-[11px] font-bold">
+          إظهار/إخفاء باب المايكرويف
+        </span>
+      </div>
+
+      <!-- OUTER MICROWAVE CHASSIS (LTR LOCKED SO LEFT IS ALWAYS PHYSICAL LEFT) -->
+      <div dir="ltr" class="w-full bg-neutral-950 border-4 border-neutral-800 rounded-2xl p-2 sm:p-3 shadow-2xl flex items-stretch gap-1.5 select-none">
+        
+        <!-- LEFT SIDE: SMOKED GLASS DOOR (Echte Glasfront - 25L) -->
+        <div id="mwDoor" class="hidden sm:flex flex-1 glass-panel rounded-l-xl border-r-2 border-neutral-900 p-3 flex-col justify-between relative overflow-hidden">
+          <!-- Top subtle reflection -->
+          <div class="flex justify-between items-center text-[10px] text-neutral-400 font-sans">
+            <span class="bg-neutral-900/90 border border-neutral-700 px-2 py-0.5 rounded text-neutral-300 font-bold">25 Liter</span>
+            <span class="text-neutral-500">Quarzgrill 900W | 1000W</span>
+          </div>
+
+          <!-- Center Interior Window Simulation -->
+          <div class="my-auto mx-auto w-full max-w-[210px] h-36 rounded-xl border border-neutral-800/80 bg-black/70 flex flex-col items-center justify-center p-2 text-center relative">
+            <div id="insideTrayIcon" class="text-3xl mb-1">🐟</div>
+            <div id="insideTrayText" class="text-[11px] text-amber-300 font-bold leading-tight">الصحن الزجاجي الدوار (29.2 سم)</div>
+            <div class="text-[9px] text-neutral-500 mt-1">EasyClean™ Antibakteriell</div>
+          </div>
+
+          <!-- Bottom LG Logo & Smart Inverter Badge -->
+          <div class="flex items-center justify-between text-neutral-400 font-sans pt-1">
+            <div class="flex items-center gap-1">
+              <span class="w-4 h-4 rounded-full bg-rose-700 text-white text-[9px] font-black inline-flex items-center justify-center">LG</span>
+              <span class="text-xs font-bold tracking-wider text-neutral-300">NeoChef™</span>
+            </div>
+            <span class="text-[9px] border border-emerald-700/60 bg-emerald-950/40 text-emerald-300 px-1.5 py-0.5 rounded">Smart Inverter 10Y</span>
+          </div>
+        </div>
+
+        <!-- RIGHT SIDE: EXACT CONTROL PANEL FROM USER PHOTO (Source 3) -->
+        <div class="w-full sm:w-64 glass-panel rounded-xl border border-neutral-800 px-4 py-4 flex flex-col items-center justify-between relative">
+          
+          <!-- Direction Helper Labels -->
+          <div class="w-full flex justify-between text-[10px] text-slate-400 font-bold mb-1 border-b border-neutral-800 pb-1">
+            <span>⬅️ يسار اللوحة الحقيقي</span>
+            <span>يمين اللوحة الحقيقي ➡️</span>
+          </div>
+
+          <!-- 1. BLUE/WHITE 7-SEGMENT LED DISPLAY -->
+          <div class="w-full bg-black/95 border border-neutral-800 rounded-xl py-3 px-3 my-1.5 text-center shadow-inner relative">
+            <div id="ledScreen" class="led-display text-3xl font-black">0</div>
+            <div id="ledArabicHint" dir="rtl" class="text-[11px] font-bold text-emerald-400 mt-1">جاهز للتشغيل</div>
+          </div>
+
+          <!-- 2. FOUR TOUCH ICONS (2x2 EXACTLY AS PHOTO: Left is Left, Right is Right) -->
+          <div class="grid grid-cols-2 gap-x-6 gap-y-4 my-3 w-full px-2">
+            
+            <!-- TOP-LEFT: Cooking Mode (Wave square + Grill square) -->
+            <button onclick="panelButtonClick('mode')" id="btn-phys-mode" class="touch-zone rounded-xl p-2 flex flex-col items-center justify-center relative group">
+              <span id="badge-mode" class="hidden absolute -top-2.5 left-1/2 -translate-x-1/2 bg-emerald-500 text-black text-[10px] font-black px-2 py-0.5 rounded-full whitespace-nowrap shadow">اضغط هنا</span>
+              <svg class="w-12 h-8 stroke-white fill-none" viewBox="0 0 64 40" stroke-width="2.5">
+                <!-- Left Square: Microwave Waves -->
+                <rect x="2" y="4" width="27" height="28" rx="3"/>
+                <path d="M7 12 Q11 9 15 12 T23 12" stroke-linecap="round"/>
+                <path d="M7 18 Q11 15 15 18 T23 18" stroke-linecap="round"/>
+                <path d="M7 24 Q11 21 15 24 T23 24" stroke-linecap="round"/>
+                <!-- Right Square: Quartz Grill -->
+                <rect x="33" y="4" width="27" height="28" rx="3"/>
+                <polyline points="37,11 41,15 45,11 49,15 53,11 56,14" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span class="text-[10px] text-slate-300 font-bold mt-1">طبخ / شواية (يسار فوق)</span>
+            </button>
+
+            <!-- TOP-RIGHT: Inverter Defrost (** + drops + Inverter) -->
+            <button onclick="panelButtonClick('defrost')" id="btn-phys-defrost" class="touch-zone rounded-xl p-2 flex flex-col items-center justify-center relative group">
+              <span id="badge-defrost" class="hidden absolute -top-2.5 left-1/2 -translate-x-1/2 bg-emerald-500 text-black text-[10px] font-black px-2 py-0.5 rounded-full whitespace-nowrap shadow">اضغط هنا</span>
+              <svg class="w-12 h-8 stroke-white fill-none" viewBox="0 0 64 44" stroke-width="2.2">
+                <!-- 2 Snowflakes -->
+                <path d="M22 4 v10 M17 9 h10 M18.5 5.5 l7 7 M25.5 5.5 l-7 7" stroke-linecap="round"/>
+                <path d="M40 4 v10 M35 9 h10 M36.5 5.5 l7 7 M43.5 5.5 l-7 7" stroke-linecap="round"/>
+                <!-- 2 Drops -->
+                <path d="M22 17 C22 17 18 23 18 25.5 A4 4 0 0 0 26 25.5 C26 23 22 17 22 17 Z"/>
+                <path d="M40 17 C40 17 36 23 36 25.5 A4 4 0 0 0 44 25.5 C44 23 40 17 40 17 Z"/>
+                <!-- Inverter text -->
+                <text x="31" y="41" fill="white" stroke="none" font-size="11" font-family="sans-serif" font-weight="bold" text-anchor="middle">Inverter</text>
+              </svg>
+              <span class="text-[10px] text-sky-300 font-bold mt-1">فك التجميد (يمين فوق)</span>
+            </button>
+
+            <!-- MIDDLE-LEFT: Healthy Fry (Chicken leg + drop + tray) -->
+            <button onclick="panelButtonClick('fry')" id="btn-phys-fry" class="touch-zone rounded-xl p-2 flex flex-col items-center justify-center relative group">
+              <span id="badge-fry" class="hidden absolute -top-2.5 left-1/2 -translate-x-1/2 bg-emerald-500 text-black text-[10px] font-black px-2 py-0.5 rounded-full whitespace-nowrap shadow">اضغط هنا</span>
+              <svg class="w-12 h-8 stroke-white fill-none" viewBox="0 0 64 42" stroke-width="2.4">
+                <!-- Chicken drumstick outline -->
+                <path d="M18 14 C12 10 12 22 18 20 C22 20 26 22 34 20 C38 19 38 11 34 10 C26 8 22 12 18 14 Z" stroke-linejoin="round"/>
+                <rect x="38" y="12" width="9" height="5" rx="2"/>
+                <!-- Oil Drop -->
+                <path d="M30 24 C30 24 28 28 28 29.5 A2 2 0 0 0 32 29.5 C32 28 30 24 30 24 Z" fill="white"/>
+                <!-- Crispy Tray Underneath -->
+                <path d="M14 29 L17 37 H45 L48 29" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span class="text-[10px] text-amber-300 font-bold mt-1">الهوائية / قلي (يسار وسط)</span>
+            </button>
+
+            <!-- MIDDLE-RIGHT: Auto Inverter (Cloud/Cloche + Auto + Inverter) -->
+            <button onclick="panelButtonClick('auto')" id="btn-phys-auto" class="touch-zone rounded-xl p-2 flex flex-col items-center justify-center relative group">
+              <span id="badge-auto" class="hidden absolute -top-2.5 left-1/2 -translate-x-1/2 bg-emerald-500 text-black text-[10px] font-black px-2 py-0.5 rounded-full whitespace-nowrap shadow">اضغط هنا</span>
+              <svg class="w-12 h-8 stroke-white fill-none" viewBox="0 0 64 44" stroke-width="2.2">
+                <!-- Dome / Cloche top -->
+                <path d="M18 16 C18 9 27 8 30 12 C34 6 45 9 45 16" stroke-linecap="round"/>
+                <!-- Auto text & tray bracket -->
+                <text x="31" y="25" fill="white" stroke="none" font-size="10" font-family="sans-serif" font-weight="bold" text-anchor="middle">Auto</text>
+                <path d="M14 20 L16 28 H46 L48 20" stroke-linecap="round" stroke-linejoin="round"/>
+                <!-- Inverter text -->
+                <text x="31" y="40" fill="white" stroke="none" font-size="11" font-family="sans-serif" font-weight="bold" text-anchor="middle">Inverter</text>
+              </svg>
+              <span class="text-[10px] text-emerald-300 font-bold mt-1">أوتوماتيك (يمين وسط)</span>
+            </button>
+
+          </div>
+
+          <!-- 3. REALISTIC ROTARY DIAL WITH - (LEFT) AND + (RIGHT) ARC -->
+          <div class="relative flex flex-col items-center my-2 w-full">
+            <!-- Curved - / + Arc exactly like Source 3 -->
+            <svg class="w-36 h-8 -mb-3 pointer-events-none" viewBox="0 0 140 34">
+              <path d="M 22 28 A 55 55 0 0 1 118 28" fill="none" stroke="#d4d4d8" stroke-width="1.6"/>
+              <!-- Left Minus -->
+              <text x="12" y="29" fill="#ffffff" font-size="18" font-family="monospace" font-weight="bold">-</text>
+              <!-- Right Plus -->
+              <text x="118" y="29" fill="#ffffff" font-size="16" font-family="monospace" font-weight="bold">+</text>
+            </svg>
+
+            <div class="flex items-center gap-3">
+              <button onclick="turnDial(-1)" class="bg-neutral-800 hover:bg-neutral-700 border border-neutral-600 text-white text-xs font-bold w-8 h-8 rounded-full shadow active:scale-90" title="لف لليسار (-)">-</button>
+              
+              <!-- Physical Brushed Metal Knob -->
+              <div id="knobElement" class="w-20 h-20 rounded-full rotary-knob border-2 border-neutral-400/60 flex items-center justify-center relative cursor-pointer" onclick="turnDial(1)">
+                <div class="w-16 h-16 rounded-full border border-neutral-500/40 flex items-center justify-center">
+                  <span class="text-[10px] text-neutral-300 font-bold">لف القرص</span>
+                </div>
+              </div>
+
+              <button onclick="turnDial(1)" class="bg-neutral-800 hover:bg-neutral-700 border border-neutral-600 text-white text-xs font-bold w-8 h-8 rounded-full shadow active:scale-90" title="لف لليمين (+)">+</button>
+            </div>
+            <span id="dialInstruction" dir="rtl" class="text-[11px] text-amber-300 font-bold mt-1.5">قرص الاختيار والوزن والوقت</span>
+          </div>
+
+          <!-- 4. BOTTOM ROW: LEFT = RED STOP/CLEAR | RIGHT = WHITE START/+30S -->
+          <div class="grid grid-cols-2 gap-6 w-full px-3 mt-3 pt-2 border-t border-neutral-900">
+            
+            <!-- BOTTOM-LEFT: RED STOP / CLEAR -->
+            <button onclick="pressStopButton()" id="btn-phys-stop" class="touch-zone rounded-xl p-1.5 flex flex-col items-center justify-center">
+              <svg class="w-12 h-7" viewBox="0 0 60 32" fill="none">
+                <circle cx="21" cy="13" r="9" stroke="#ef4444" stroke-width="2.2"/>
+                <polygon points="17,9 25,9 21,18" stroke="#ef4444" stroke-width="1.8" fill="none"/>
+                <circle cx="37" cy="14" r="6.5" stroke="#ef4444" stroke-width="2.2"/>
+                <line x1="10" y1="27" x2="48" y2="27" stroke="#ef4444" stroke-width="3" stroke-linecap="round"/>
+              </svg>
+              <span class="text-[10px] text-red-400 font-bold">إيقاف / مسح (يسار تحت)</span>
+            </button>
+
+            <!-- BOTTOM-RIGHT: WHITE START / +30s -->
+            <button onclick="pressStartButton()" id="btn-phys-start" class="touch-zone rounded-xl p-1.5 flex flex-col items-center justify-center">
+              <svg class="w-12 h-7" viewBox="0 0 60 32" fill="none">
+                <polygon points="21,4 30,13 21,22 12,13" stroke="#ffffff" stroke-width="2.2"/>
+                <line x1="21" y1="9" x2="21" y2="17" stroke="#ffffff" stroke-width="2.2"/>
+                <polygon points="36,4 45,13 36,22 27,13" stroke="#ffffff" stroke-width="2.2"/>
+                <polyline points="46,8 42,14 47,14 43,21" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <line x1="10" y1="27" x2="50" y2="27" stroke="#ffffff" stroke-width="3" stroke-linecap="round"/>
+              </svg>
+              <span class="text-[10px] text-sky-300 font-bold">تشغيل +30ث (يمين تحت)</span>
+            </button>
+
+          </div>
+
+        </div>
+      </div>
+
+      <!-- STEP-BY-STEP ARABIC GUIDE BOX FOR CURRENT SELECTION -->
+      <div id="liveStepsBox" class="mt-3 bg-slate-950 border border-emerald-500/40 rounded-2xl p-3.5 text-xs space-y-2">
+        <!-- Populated by JS -->
+      </div>
+    </section>
+
+    <!-- ================= FOOD SELECTOR TABS ================= -->
+    <section class="bg-slate-900 border border-slate-800 rounded-2xl p-3 shadow-lg">
+      <h2 class="text-xs font-black text-sky-400 mb-2">اختر الأكلة الموجودة عندك ليضيء مكان زرها الصحيح على المجسم:</h2>
+      <div class="grid grid-cols-4 sm:grid-cols-8 gap-1.5 text-center">
+        <button onclick="filterCategory('fish', this)" class="tab-btn active bg-slate-800 border border-slate-700 rounded-xl p-2 flex flex-col items-center">
+          <span class="text-xl">🐟</span>
+          <span class="text-[11px] font-bold mt-0.5">سمك</span>
+        </button>
+        <button onclick="filterCategory('fryer', this)" class="tab-btn bg-slate-800 border border-slate-700 rounded-xl p-2 flex flex-col items-center">
+          <span class="text-xl">🍟</span>
+          <span class="text-[11px] font-bold mt-0.5">الهوائية</span>
+        </button>
+        <button onclick="filterCategory('chicken', this)" class="tab-btn bg-slate-800 border border-slate-700 rounded-xl p-2 flex flex-col items-center">
+          <span class="text-xl">🍗</span>
+          <span class="text-[11px] font-bold mt-0.5">دجاج</span>
+        </button>
+        <button onclick="filterCategory('meat', this)" class="tab-btn bg-slate-800 border border-slate-700 rounded-xl p-2 flex flex-col items-center">
+          <span class="text-xl">🥩</span>
+          <span class="text-[11px] font-bold mt-0.5">لحوم</span>
+        </button>
+        <button onclick="filterCategory('veg', this)" class="tab-btn bg-slate-800 border border-slate-700 rounded-xl p-2 flex flex-col items-center">
+          <span class="text-xl">🥔</span>
+          <span class="text-[11px] font-bold mt-0.5">بطاطا/رز</span>
+        </button>
+        <button onclick="filterCategory('bakery', this)" class="tab-btn bg-slate-800 border border-slate-700 rounded-xl p-2 flex flex-col items-center">
+          <span class="text-xl">🍕</span>
+          <span class="text-[11px] font-bold mt-0.5">بيتزا/خبز</span>
+        </button>
+        <button onclick="filterCategory('manual', this)" class="tab-btn bg-slate-800 border border-slate-700 rounded-xl p-2 flex flex-col items-center">
+          <span class="text-xl">🔥</span>
+          <span class="text-[11px] font-bold mt-0.5">تسخين/شواية</span>
+        </button>
+        <button onclick="filterCategory('melt', this)" class="tab-btn bg-slate-800 border border-slate-700 rounded-xl p-2 flex flex-col items-center">
+          <span class="text-xl">🧀</span>
+          <span class="text-[11px] font-bold mt-0.5">تذويب/لبن</span>
+        </button>
+      </div>
+
+      <input id="quickSearch" type="text" placeholder="ابحث عن أي برنامج أو أكلة (سلمون، دجاج، بطاطا، خبز، شواية)..."
+        class="mt-2.5 w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white placeholder-slate-400 focus:outline-none focus:border-sky-500">
+    </section>
+
+    <!-- ================= PROGRAM CARDS LIST ================= -->
+    <section id="cardsList" class="space-y-2.5"></section>
+
+  </main>
+
+  <!-- ================= PDF TECHNICAL SPECS MODAL (FROM OTTO PDF) ================= -->
+  <div id="specsModal" class="hidden fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+    <div class="bg-slate-900 border border-slate-700 rounded-3xl max-w-lg w-full p-5 max-h-[85vh] overflow-y-auto space-y-4">
+      <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+        <h3 class="text-base font-black text-white">📄 مواصفات LG MH 6565 CPB (من ملف PDF الألماني)</h3>
+        <button onclick="toggleSpecsModal()" class="text-slate-400 hover:text-white text-xl font-bold">✕</button>
+      </div>
+      <div class="space-y-3 text-xs leading-relaxed text-slate-200">
+        <div class="bg-slate-800/70 p-3 rounded-xl border border-slate-700">
+          <h4 class="font-bold text-sky-400 mb-1">القدرة والتقنيات (Technische Daten):</h4>
+          <ul class="list-disc list-inside space-y-1">
+            <li><strong>السعة الداخلية:</strong> 25 لتر (قطر الصحن الزجاجي الدوار 29.2 سم).</li>
+            <li><strong>قدرة المايكرويف:</strong> 1000 واط مع 5 مستويات طاقة (1000W, 800W, 600W, 400W, 200W) بتقنية Smart Inverter.</li>
+            <li><strong>قدرة الشواية:</strong> 900 واط شواية كوارتز (Quarz Grill) أسرع بـ 75% من الشوايات التقليدية.</li>
+            <li><strong>عدد البرامج الأوتوماتيكية:</strong> 40 برنامجاً أوتوماتيكياً + 3 أوضاع يدوية.</li>
+            <li><strong>الطلاء الداخلي:</strong> طبقة EasyClean مضادة للبكتيريا بنسبة 99.99% وسهلة المسح.</li>
+          </ul>
+        </div>
+        <div class="bg-slate-800/70 p-3 rounded-xl border border-slate-700">
+          <h4 class="font-bold text-amber-400 mb-1">الملحقات الثلاثة المرفقة (Zubehör):</h4>
+          <ul class="list-disc list-inside space-y-1">
+            <li><strong>الصحن الزجاجي (Glasdrehteller):</strong> يبقى دائماً في أسفل المايكرويف.</li>
+            <li><strong>صينية التحمير السوداء (Crispy Tablett):</strong> توضع فوق الصحن الزجاجي في برامج القلي الصحي (الهوائية) والشوي لتحمير الطعام من الأسفل بدون زيت.</li>
+            <li><strong>الشبك المعدني الدائري (Rost):</strong> يستخدم فقط عند تشغيل الشواية (Grill) لرفع الطعام قريباً من السخان العلوي.</li>
+          </ul>
+        </div>
+        <div class="bg-slate-800/70 p-3 rounded-xl border border-slate-700">
+          <h4 class="font-bold text-emerald-400 mb-1">توزيع الـ 40 برنامج في ملف الـ PDF:</h4>
+          <ul class="list-disc list-inside space-y-1">
+            <li>4 برامج فك تجميد ذكي (Inverter Defrost: dEF1 - dEF4).</li>
+            <li>8 برامج قلي صحي وتحمير مقرمش (Zdrowe smażenie: 1 - 8).</li>
+            <li>6 برامج شوي وتحمير (Röstprogramme / Pieczenie: 1-1 إلى 1-6).</li>
+            <li>8 برامج قائمة يومية (Popularne menu: 2-1 إلى 2-8).</li>
+            <li>4 برامج تذويب وتطرية (Aufweich- & Schmelzprogramme: 3-1 إلى 3-4).</li>
+            <li>8 برامج فك تجميد وطبخ وشوي مباشر (Garen und Grillen: 4-1 إلى 4-8).</li>
+            <li>برنامجان للتخمير وحفظ السخونة (5: Jogurt للبن الزبادي، 6: Podgrzewanie لحفظ الحرارة).</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let knobRotation = 0;
+
+    const programsData = [
+      // FISH
+      {
+        id: 'def3', cat: ['fish'], icon: '🐟❄️', btn: 'defrost', posText: 'الزر العلوي الأيمن (رمز الثلج والقطرات Inverter)',
+        presses: 1, code: 'dEF 3', ar: 'فك تجميد السمك فقط (بدون طبخ)', pl: 'Rozmrażanie: Ryba',
+        tray: 'الصحن الزجاجي الدوار فقط',
+        steps: [
+          'اضغط <strong>الزر الأحمر (تحت على اليسار)</strong> لتصفير الشاشة.',
+          'اضغط <strong>الزر العلوي الأيمن (رمز الثلج والقطرات Inverter)</strong> مرة واحدة.',
+          '<strong>لف القرص الدوار لليمين (+)</strong> حتى يظهر على الشاشة <code>dEF 3</code>.',
+          'اضغط <strong>زر البرق الأبيض (تحت على اليمين)</strong> لتأكيد البرنامج.',
+          '<strong>لف القرص الدوار لليمين (+)</strong> لتحديد وزن السمك، ثم اضغط <strong>زر البرق (تحت يمين)</strong> ليبدأ.'
+        ]
+      },
+      {
+        id: 'auto4-7', cat: ['fish'], icon: '🍣🔥', btn: 'auto', posText: 'الزر الأوسط الأيمن (رمز القبة Auto Inverter)',
+        presses: 4, code: '4-7', ar: 'فك تجميد + شوي فيليه سلمون مجمد مباشرة', pl: 'Filety z łososia',
+        tray: 'الصينية السوداء (Crispy Tablett) فوق الصحن الزجاجي',
+        steps: [
+          'اضغط <strong>الزر الأحمر (تحت على اليسار)</strong> لتصفير الشاشة.',
+          'اضغط <strong>الزر الأوسط الأيمن (Auto Inverter)</strong> <strong>4 مرات متتالية</strong> حتى يظهر رقم <code>4</code>.',
+          '<strong>لف القرص الدوار لليمين (+)</strong> حتى يظهر الكود <code>4-7</code>.',
+          'اضغط <strong>زر البرق الأبيض (تحت على اليمين)</strong> للتأكيد.',
+          '<strong>لف القرص (+)</strong> لتحديد وزن السلمون، ثم اضغط <strong>زر البرق (تحت يمين)</strong> للتشغيل.'
+        ]
+      },
+      {
+        id: 'fry4', cat: ['fish', 'fryer'], icon: '🐟🍟', btn: 'fry', posText: 'الزر الأوسط الأيسر (رسمة فخذ الدجاج والصينية)',
+        presses: 1, code: '4', ar: 'قلي صحي / تحمير فيليه سمك مقرمش (الهوائية)', pl: 'Zdrowe smażenie: Sznycel rybny',
+        tray: 'الصينية السوداء (Crispy Tablett) فوق الصحن الزجاجي',
+        steps: [
+          'ضع السمك المتبل على <strong>الصينية السوداء (Crispy Tablett)</strong>.',
+          'اضغط <strong>الزر الأوسط الأيسر (رسمة فخذ الدجاج)</strong> مرة واحدة.',
+          '<strong>لف القرص الدوار لليمين (+)</strong> حتى يظهر الرقم <code>4</code>.',
+          'اضغط <strong>زر البرق الأبيض (تحت على اليمين)</strong> للتأكيد.',
+          '<strong>لف القرص (+)</strong> لتحديد الوزن، ثم اضغط <strong>زر البرق (تحت يمين)</strong> للتشغيل.'
+        ]
+      },
+      {
+        id: 'auto4-8', cat: ['fish'], icon: '🦐🔥', btn: 'auto', posText: 'الزر الأوسط الأيمن (رمز القبة Auto Inverter)',
+        presses: 4, code: '4-8', ar: 'فك تجميد وطبخ روبيان / جمبري مجمد', pl: 'Krewetki',
+        tray: 'الصينية السوداء (Crispy Tablett) فوق الصحن الزجاجي',
+        steps: [
+          'اضغط <strong>الزر الأوسط الأيمن (Auto Inverter)</strong> <strong>4 مرات متتالية</strong> ليظهر رقم <code>4</code>.',
+          '<strong>لف القرص الدوار لليمين (+)</strong> حتى يظهر الكود <code>4-8</code>.',
+          'اضغط <strong>زر البرق (تحت يمين)</strong>، ثم لف القرص لتحديد الوزن واضغط <strong>زر البرق</strong>.'
+        ]
+      },
+
+      // HEALTHY FRY / AIR FRYER (Middle-Left Button)
+      {
+        id: 'fry5', cat: ['fryer', 'veg'], icon: '🍟', btn: 'fry', posText: 'الزر الأوسط الأيسر (رسمة فخذ الدجاج والصينية)',
+        presses: 1, code: '5', ar: 'بطاطا مقلية مقرمشة بدون زيت (فرايز - الهوائية)', pl: 'Zdrowe smażenie: Frytki',
+        tray: 'الصينية السوداء (Crispy Tablett) فوق الصحن الزجاجي',
+        steps: [
+          'افرد البطاطا على <strong>الصينية السوداء (Crispy Tablett)</strong>.',
+          'اضغط <strong>الزر الأوسط الأيسر (رسمة فخذ الدجاج)</strong> مرة واحدة.',
+          '<strong>لف القرص الدوار لليمين (+)</strong> حتى يظهر الرقم <code>5</code>.',
+          'اضغط <strong>زر البرق (تحت يمين)</strong>، ثم لف القرص لتحديد الوزن واضغط <strong>زر البرق</strong>.'
+        ]
+      },
+      {
+        id: 'fry1', cat: ['fryer', 'chicken'], icon: '🍗', btn: 'fry', posText: 'الزر الأوسط الأيسر (رسمة فخذ الدجاج والصينية)',
+        presses: 1, code: '1', ar: 'شنيتزل دجاج مقرمش (بانيه - الهوائية)', pl: 'Zdrowe smażenie: Sznycel z kurczaka',
+        tray: 'الصينية السوداء (Crispy Tablett) فوق الصحن الزجاجي',
+        steps: [
+          'ضع شنيتزل الدجاج على <strong>الصينية السوداء (Crispy Tablett)</strong>.',
+          'اضغط <strong>الزر الأوسط الأيسر (رسمة فخذ الدجاج)</strong> مرة واحدة (سيظهر رقم <code>1</code>).',
+          'اضغط <strong>زر البرق (تحت يمين)</strong>، ثم لف القرص لتحديد الوزن واضغط <strong>زر البرق</strong>.'
+        ]
+      },
+      {
+        id: 'fry2', cat: ['fryer', 'chicken'], icon: '🍗🔥', btn: 'fry', posText: 'الزر الأوسط الأيسر (رسمة فخذ الدجاج والصينية)',
+        presses: 1, code: '2', ar: 'أجنحة دجاج محمرة ومشوية (الهوائية)', pl: 'Zdrowe smażenie: Skrzydełka z kurczaka',
+        tray: 'الصينية السوداء (Crispy Tablett) فوق الصحن الزجاجي',
+        steps: [
+          'رتب أجنحة الدجاج على <strong>الصينية السوداء (Crispy Tablett)</strong>.',
+          'اضغط <strong>الزر الأوسط الأيسر (رسمة فخذ الدجاج)</strong> مرة واحدة.',
+          '<strong>لف القرص الدوار لليمين (+)</strong> للرقم <code>2</code>.',
+          'اضغط <strong>زر البرق (تحت يمين)</strong>، ثم حدد الوزن بالقرص واضغط <strong>زر البرق</strong>.'
+        ]
+      },
+      {
+        id: 'fry3', cat: ['fryer', 'meat'], icon: '🥩🔥', btn: 'fry', posText: 'الزر الأوسط الأيسر (رسمة فخذ الدجاج والصينية)',
+        presses: 1, code: '3', ar: 'شوي كوتليت / شرائح لحم أو كفتة (الهوائية)', pl: 'Zdrowe smażenie: Kotlet',
+        tray: 'الصينية السوداء (Crispy Tablett) فوق الصحن الزجاجي',
+        steps: [
+          'ضع اللحم على <strong>الصينية السوداء (Crispy Tablett)</strong>.',
+          'اضغط <strong>الزر الأوسط الأيسر (رسمة فخذ الدجاج)</strong> مرة واحدة.',
+          '<strong>لف القرص لليمين (+)</strong> للرقم <code>3</code>.',
+          'اضغط <strong>زر البرق (تحت يمين)</strong>، ثم حدد الوزن بالقرص واضغط <strong>زر البرق</strong>.'
+        ]
+      },
+      {
+        id: 'fry6', cat: ['fryer', 'meat'], icon: '🍔', btn: 'fry', posText: 'الزر الأوسط الأيسر (رسمة فخذ الدجاج والصينية)',
+        presses: 1, code: '6', ar: 'شوي برغر (هامبرغر - الهوائية)', pl: 'Zdrowe smażenie: Hamburgery',
+        tray: 'الصينية السوداء (Crispy Tablett) فوق الصحن الزجاجي',
+        steps: [
+          'ضع أقراص البرغر على <strong>الصينية السوداء (Crispy Tablett)</strong>.',
+          'اضغط <strong>الزر الأوسط الأيسر (رسمة فخذ الدجاج)</strong> مرة واحدة.',
+          '<strong>لف القرص لليمين (+)</strong> للرقم <code>6</code>.',
+          'اضغط <strong>زر البرق (تحت يمين)</strong>، ثم حدد الوزن بالقرص واضغط <strong>زر البرق</strong>.'
+        ]
+      },
+      {
+        id: 'fry7', cat: ['fryer', 'meat'], icon: '🌭', btn: 'fry', posText: 'الزر الأوسط الأيسر (رسمة فخذ الدجاج والصينية)',
+        presses: 1, code: '7', ar: 'شوي نقانق / سجق (الهوائية)', pl: 'Zdrowe smażenie: Kiełbaski',
+        tray: 'الصينية السوداء (Crispy Tablett) فوق الصحن الزجاجي',
+        steps: [
+          'اضغط <strong>الزر الأوسط الأيسر (رسمة فخذ الدجاج)</strong> مرة واحدة.',
+          '<strong>لف القرص لليمين (+)</strong> للرقم <code>7</code>.',
+          'اضغط <strong>زر البرق (تحت يمين)</strong>، ثم حدد الوزن بالقرص واضغط <strong>زر البرق</strong>.'
+        ]
+      },
+      {
+        id: 'fry8', cat: ['fryer', 'veg'], icon: '🥔🔥', btn: 'fry', posText: 'الزر الأوسط الأيسر (رسمة فخذ الدجاج والصينية)',
+        presses: 1, code: '8', ar: 'شوي بطاطا ودجز متبلة (الهوائية)', pl: 'Zdrowe smażenie: Łódeczki ziemniaczane',
+        tray: 'الصينية السوداء (Crispy Tablett) فوق الصحن الزجاجي',
+        steps: [
+          'اضغط <strong>الزر الأوسط الأيسر (رسمة فخذ الدجاج)</strong> مرة واحدة.',
+          '<strong>لف القرص لليمين (+)</strong> للرقم <code>8</code>.',
+          'اضغط <strong>زر البرق (تحت يمين)</strong>، ثم حدد الوزن بالقرص واضغط <strong>زر البرق</strong>.'
+        ]
+      },
+
+      // CHICKEN
+      {
+        id: 'def2', cat: ['chicken'], icon: '🍗❄️', btn: 'defrost', posText: 'الزر العلوي الأيمن (رمز الثلج والقطرات Inverter)',
+        presses: 1, code: 'dEF 2', ar: 'فك تجميد الدجاج والدواجن', pl: 'Rozmrażanie: Drób',
+        tray: 'الصحن الزجاجي الدوار فقط',
+        steps: [
+          'اضغط <strong>الزر العلوي الأيمن (الثلج والقطرات Inverter)</strong> مرة واحدة.',
+          '<strong>لف القرص لليمين (+)</strong> حتى يظهر <code>dEF 2</code>.',
+          'اضغط <strong>زر البرق (تحت يمين)</strong>، ثم حدد الوزن بالقرص واضغط <strong>زر البرق</strong>.'
+        ]
+      },
+      {
+        id: 'auto1-3', cat: ['chicken'], icon: '🐓🔥', btn: 'auto', posText: 'الزر الأوسط الأيمن (رمز القبة Auto Inverter)',
+        presses: 1, code: '1-3', ar: 'شوي دجاج كامل أو قطع دجاج كبيرة', pl: 'Pieczenie: Pieczony kurczak',
+        tray: 'الصينية السوداء (Crispy Tablett) فوق الصحن الزجاجي',
+        steps: [
+          'اضغط <strong>الزر الأوسط الأيمن (Auto Inverter)</strong> <strong>مرة واحدة</strong> ليظهر رقم <code>1</code>.',
+          '<strong>لف القرص لليمين (+)</strong> حتى يظهر الكود <code>1-3</code>.',
+          'اضغط <strong>زر البرق (تحت يمين)</strong>، ثم حدد الوزن بالقرص واضغط <strong>زر البرق</strong>.'
+        ]
+      },
+      {
+        id: 'auto2-1', cat: ['chicken'], icon: '🍗🍲', btn: 'auto', posText: 'الزر الأوسط الأيمن (رمز القبة Auto Inverter)',
+        presses: 2, code: '2-1', ar: 'طبخ دبابيس / أفخاذ دجاج بالصلصة', pl: 'Udka z kurczaka w śliwkach',
+        tray: 'وعاء بايركس فوق الصحن الزجاجي',
+        steps: [
+          'اضغط <strong>الزر الأوسط الأيمن (Auto Inverter)</strong> <strong>مرتين</strong> ليظهر رقم <code>2</code>.',
+          '<strong>لف القرص لليمين (+)</strong> حتى يظهر الكود <code>2-1</code>.',
+          'اضغط <strong>زر البرق (تحت يمين)</strong>، ثم حدد الوزن بالقرص واضغط <strong>زر البرق</strong>.'
+        ]
+      },
+      {
+        id: 'auto4-3', cat: ['chicken', 'fryer'], icon: ' nuggets', btn: 'auto', posText: 'الزر الأوسط الأيمن (رمز القبة Auto Inverter)',
+        presses: 4, code: '4-3', ar: 'فك تجميد وتحمير ناغتس دجاج مجمد', pl: 'Nuggetsy z kurczaka',
+        tray: 'الصينية السوداء (Crispy Tablett) فوق الصحن الزجاجي',
+        steps: [
+          'اضغط <strong>الزر الأوسط الأيمن (Auto Inverter)</strong> <strong>4 مرات</strong> ليظهر رقم <code>4</code>.',
+          '<strong>لف القرص لليمين (+)</strong> حتى يظهر الكود <code>4-3</code>.',
+          'اضغط <strong>زر البرق (تحت يمين)</strong>، ثم حدد الوزن بالقرص واضغط <strong>زر البرق</strong>.'
+        ]
+      },
+
+      // MEAT
+      {
+        id: 'def1', cat: ['meat'], icon: '🥩❄️', btn: 'defrost', posText: 'الزر العلوي الأيمن (رمز الثلج والقطرات Inverter)',
+        presses: 1, code: 'dEF 1', ar: 'فك تجميد اللحوم الحمراء', pl: 'Rozmrażanie: Mięso',
+        tray: 'الصحن الزجاجي الدوار فقط',
+        steps: [
+          'اضغط <strong>الزر العلوي الأيمن (الثلج والقطرات Inverter)</strong> مرة واحدة ليظهر <code>dEF 1</code>.',
+          'اضغط <strong>زر البرق (تحت يمين)</strong>، ثم حدد الوزن بالقرص واضغط <strong>زر البرق</strong>.'
+        ]
+      },
+      {
+        id: 'auto1-2', cat: ['meat'], icon: '🥩🔥', btn: 'auto', posText: 'الزر الأوسط الأيمن (رمز القبة Auto Inverter)',
+        presses: 1, code: '1-2', ar: 'شوي لحم بقري (روست بيف)', pl: 'Pieczenie: Pieczeń wołowa',
+        tray: 'الصينية السوداء (Crispy Tablett) فوق الصحن الزجاجي',
+        steps: [
+          'اضغط <strong>الزر الأوسط الأيمن (Auto Inverter)</strong> <strong>مرة واحدة</strong> ليظهر رقم <code>1</code>.',
+          '<strong>لف القرص لليمين (+)</strong> للكود <code>1-2</code>.',
+          'اضغط <strong>زر البرق (تحت يمين)</strong>، ثم حدد الوزن بالقرص واضغط <strong>زر البرق</strong>.'
+        ]
+      },
+      {
+        id: 'auto1-4', cat: ['meat'], icon: '🍖🔥', btn: 'auto', posText: 'الزر الأوسط الأيمن (رمز القبة Auto Inverter)',
+        presses: 1, code: '1-4', ar: 'شوي لحم غنم / ضأن', pl: 'Pieczenie: Pieczeń jagnięca',
+        tray: 'الصينية السوداء (Crispy Tablett) فوق الصحن الزجاجي',
+        steps: [
+          'اضغط <strong>الزر الأوسط الأيمن (Auto Inverter)</strong> <strong>مرة واحدة</strong> ليظهر رقم <code>1</code>.',
+          '<strong>لف القرص لليمين (+)</strong> للكود <code>1-4</code>.',
+          'اضغط <strong>زر البرق (تحت يمين)</strong>، ثم حدد الوزن بالقرص واضغط <strong>زر البرق</strong>.'
+        ]
+      },
+      {
+        id: 'auto1-5', cat: ['meat'], icon: '🍖', btn: 'auto', posText: 'الزر الأوسط الأيمن (رمز القبة Auto Inverter)',
+        presses: 1, code: '1-5', ar: 'شوي لحم سميك (Pieczeń wieprzowa)', pl: 'Pieczenie: Pieczeń wieprzowa',
+        tray: 'الصينية السوداء (Crispy Tablett) فوق الصحن الزجاجي',
+        steps: [
+          'اضغط <strong>الزر الأوسط الأيمن (Auto Inverter)</strong> <strong>مرة واحدة</strong> ليظهر رقم <code>1</code>.',
+          '<strong>لف القرص لليمين (+)</strong> للكود <code>1-5</code>، ثم اضغط <strong>زر البرق</strong> وحدد الوزن.'
+        ]
+      },
+      {
+        id: 'auto2-3', cat: ['meat', 'veg'], icon: '🍆🥩', btn: 'auto', posText: 'الزر الأوسط الأيمن (رمز القبة Auto Inverter)',
+        presses: 2, code: '2-3', ar: 'صينية فيليه لحم مع باذنجان', pl: 'Polędwiczka z bakłażanem',
+        tray: 'وعاء بايركس فوق الصحن الزجاجي',
+        steps: [
+          'اضغط <strong>الزر الأوسط الأيمن (Auto Inverter)</strong> <strong>مرتين</strong> ليظهر رقم <code>2</code>.',
+          '<strong>لف القرص لليمين (+)</strong> للكود <code>2-3</code>، ثم اضغط <strong>زر البرق</strong> وحدد الوزن.'
+        ]
+      },
+
+      // VEG & RICE
+      {
+        id: 'auto1-1', cat: ['veg'], icon: '🥔', btn: 'auto', posText: 'الزر الأوسط الأيمن (رمز القبة Auto Inverter)',
+        presses: 1, code: '1-1', ar: 'شوي بطاطا كاملة بقشرها', pl: 'Pieczenie: Ziemniaki w mundurkach',
+        tray: 'الصينية السوداء (Crispy Tablett) فوق الصحن الزجاجي',
+        steps: [
+          'اضغط <strong>الزر الأوسط الأيمن (Auto Inverter)</strong> <strong>مرة واحدة</strong> ليظهر رقم <code>1</code>.',
+          '<strong>لف القرص لليمين (+)</strong> للكود <code>1-1</code>، ثم اضغط <strong>زر البرق</strong> وحدد الوزن.'
+        ]
+      },
+      {
+        id: 'auto1-6', cat: ['veg'], icon: '🥦🥕', btn: 'auto', posText: 'الزر الأوسط الأيمن (رمز القبة Auto Inverter)',
+        presses: 1, code: '1-6', ar: 'شوي خضار مشكلة', pl: 'Pieczenie: Pieczone warzywa',
+        tray: 'الصينية السوداء (Crispy Tablett) فوق الصحن الزجاجي',
+        steps: [
+          'اضغط <strong>الزر الأوسط الأيمن (Auto Inverter)</strong> <strong>مرة واحدة</strong> ليظهر رقم <code>1</code>.',
+          '<strong>لف القرص لليمين (+)</strong> للكود <code>1-6</code>، ثم اضغط <strong>زر البرق</strong> وحدد الوزن.'
+        ]
+      },
+      {
+        id: 'auto2-6', cat: ['veg'], icon: '🍚🍝', btn: 'auto', posText: 'الزر الأوسط الأيمن (رمز القبة Auto Inverter)',
+        presses: 2, code: '2-6', ar: 'طبخ الأرز أو المعكرونة', pl: 'Ryż / Makaron',
+        tray: 'وعاء بايركس عميق فوق الصحن الزجاجي',
+        steps: [
+          'اضغط <strong>الزر الأوسط الأيمن (Auto Inverter)</strong> <strong>مرتين</strong> ليظهر رقم <code>2</code>.',
+          '<strong>لف القرص لليمين (+)</strong> للكود <code>2-6</code>، ثم اضغط <strong>زر البرق</strong> وحدد الوزن.'
+        ]
+      },
+      {
+        id: 'auto2-4', cat: ['veg'], icon: '🧀🥔', btn: 'auto', posText: 'الزر الأوسط الأيمن (رمز القبة Auto Inverter)',
+        presses: 2, code: '2-4', ar: 'غراتان بطاطا بالفرن', pl: 'Zapiekanka ziemniaczana',
+        tray: 'وعاء بايركس أو الصينية السوداء',
+        steps: [
+          'اضغط <strong>الزر الأوسط الأيمن (Auto Inverter)</strong> <strong>مرتين</strong> ليظهر رقم <code>2</code>.',
+          '<strong>لف القرص لليمين (+)</strong> للكود <code>2-4</code>، ثم اضغط <strong>زر البرق</strong> وحدد الوزن.'
+        ]
+      },
+      {
+        id: 'auto2-5', cat: ['veg'], icon: '🍲', btn: 'auto', posText: 'الزر الأوسط الأيمن (رمز القبة Auto Inverter)',
+        presses: 2, code: '2-5', ar: 'راتاتوي خضار / مسقعة', pl: 'Ratatouille',
+        tray: 'وعاء بايركس فوق الصحن الزجاجي',
+        steps: [
+          'اضغط <strong>الزر الأوسط الأيمن (Auto Inverter)</strong> <strong>مرتين</strong> ليظهر رقم <code>2</code>.',
+          '<strong>لف القرص لليمين (+)</strong> للكود <code>2-5</code>، ثم اضغط <strong>زر البرق</strong> وحدد الوزن.'
+        ]
+      },
+      {
+        id: 'auto2-7', cat: ['veg'], icon: '🍅', btn: 'auto', posText: 'الزر الأوسط الأيمن (رمز القبة Auto Inverter)',
+        presses: 2, code: '2-7', ar: 'طماطم محشية بالفرن', pl: 'Faszerowane pomidory',
+        tray: 'وعاء بايركس أو الصينية السوداء',
+        steps: [
+          'اضغط <strong>الزر الأوسط الأيمن (Auto Inverter)</strong> <strong>مرتين</strong> ليظهر رقم <code>2</code>.',
+          '<strong>لف القرص لليمين (+)</strong> للكود <code>2-7</code>، ثم اضغط <strong>زر البرق</strong> وحدد الوزن.'
+        ]
+      },
+      {
+        id: 'auto2-8', cat: ['veg'], icon: '🥒', btn: 'auto', posText: 'الزر الأوسط الأيمن (رمز القبة Auto Inverter)',
+        presses: 2, code: '2-8', ar: 'كوسا محشية بالفرن', pl: 'Faszerowana cukinia',
+        tray: 'وعاء بايركس أو الصينية السوداء',
+        steps: [
+          'اضغط <strong>الزر الأوسط الأيمن (Auto Inverter)</strong> <strong>مرتين</strong> ليظهر رقم <code>2</code>.',
+          '<strong>لف القرص لليمين (+)</strong> للكود <code>2-8</code>، ثم اضغط <strong>زر البرق</strong> وحدد الوزن.'
+        ]
+      },
+      {
+        id: 'auto2-2', cat: ['veg'], icon: '🥣', btn: 'auto', posText: 'الزر الأوسط الأيمن (رمز القبة Auto Inverter)',
+        presses: 2, code: '2-2', ar: 'شوربة جوليان بالخبز', pl: 'Zupa julienne w bułce',
+        tray: 'وعاء شوربة فوق الصحن الزجاجي',
+        steps: [
+          'اضغط <strong>الزر الأوسط الأيمن (Auto Inverter)</strong> <strong>مرتين</strong> ليظهر رقم <code>2</code>.',
+          '<strong>لف القرص لليمين (+)</strong> للكود <code>2-2</code>، ثم اضغط <strong>زر البرق</strong> وحدد الوزن.'
+        ]
+      },
+
+      // BAKERY & PIZZA
+      {
+        id: 'def4', cat: ['bakery'], icon: '🥖❄️', btn: 'defrost', posText: 'الزر العلوي الأيمن (رمز الثلج والقطرات Inverter)',
+        presses: 1, code: 'dEF 4', ar: 'فك تجميد الخبز والمعجنات', pl: 'Rozmrażanie: Chleb',
+        tray: 'الصحن الزجاجي الدوار فقط',
+        steps: [
+          'اضغط <strong>الزر العلوي الأيمن (الثلج والقطرات Inverter)</strong> مرة واحدة.',
+          '<strong>لف القرص لليمين (+)</strong> حتى يظهر <code>dEF 4</code>.',
+          'اضغط <strong>زر البرق (تحت يمين)</strong>، ثم حدد الوزن بالقرص واضغط <strong>زر البرق</strong>.'
+        ]
+      },
+      {
+        id: 'auto4-1', cat: ['bakery'], icon: '🥐🔥', btn: 'auto', posText: 'الزر الأوسط الأيمن (رمز القبة Auto Inverter)',
+        presses: 4, code: '4-1', ar: 'فك تجميد وتحميص باغيت / كرواسون', pl: 'Bagietka / Rogal',
+        tray: 'الصينية السوداء (Crispy Tablett) فوق الصحن الزجاجي',
+        steps: [
+          'اضغط <strong>الزر الأوسط الأيمن (Auto Inverter)</strong> <strong>4 مرات</strong> ليظهر رقم <code>4</code>.',
+          '<strong>لف القرص لليمين (+)</strong> للكود <code>4-1</code>، ثم اضغط <strong>زر البرق</strong> وحدد الوزن.'
+        ]
+      },
+      {
+        id: 'auto4-5', cat: ['bakery'], icon: '🍕', btn: 'auto', posText: 'الزر الأوسط الأيمن (رمز القبة Auto Inverter)',
+        presses: 4, code: '4-5', ar: 'بيتزا مجمدة (عجينة سميكة)', pl: 'Mrożona pizza (grubym)',
+        tray: 'الصينية السوداء (Crispy Tablett) فوق الصحن الزجاجي',
+        steps: [
+          'اضغط <strong>الزر الأوسط الأيمن (Auto Inverter)</strong> <strong>4 مرات</strong> ليظهر رقم <code>4</code>.',
+          '<strong>لف القرص لليمين (+)</strong> للكود <code>4-5</code>، ثم اضغط <strong>زر البرق</strong> وحدد الوزن.'
+        ]
+      },
+      {
+        id: 'auto4-6', cat: ['bakery'], icon: '🍕✨', btn: 'auto', posText: 'الزر الأوسط الأيمن (رمز القبة Auto Inverter)',
+        presses: 4, code: '4-6', ar: 'بيتزا مجمدة (عجينة رقيقة)', pl: 'Mrożona pizza (cienkim)',
+        tray: 'الصينية السوداء (Crispy Tablett) فوق الصحن الزجاجي',
+        steps: [
+          'اضغط <strong>الزر الأوسط الأيمن (Auto Inverter)</strong> <strong>4 مرات</strong> ليظهر رقم <code>4</code>.',
+          '<strong>لف القرص لليمين (+)</strong> للكود <code>4-6</code>، ثم اضغط <strong>زر البرق</strong> وحدد الوزن.'
+        ]
+      },
+      {
+        id: 'auto4-4', cat: ['bakery', 'meat'], icon: '🍝🧀', btn: 'auto', posText: 'الزر الأوسط الأيمن (رمز القبة Auto Inverter)',
+        presses: 4, code: '4-4', ar: 'لازانيا مجمدة', pl: 'Mrożona lasagna',
+        tray: 'الصحن الزجاجي الدوار فقط',
+        steps: [
+          'اضغط <strong>الزر الأوسط الأيمن (Auto Inverter)</strong> <strong>4 مرات</strong> ليظهر رقم <code>4</code>.',
+          '<strong>لف القرص لليمين (+)</strong> للكود <code>4-4</code>، ثم اضغط <strong>زر البرق</strong> وحدد الوزن.'
+        ]
+      },
+      {
+        id: 'auto4-2', cat: ['bakery', 'fryer'], icon: '🧀🥖', btn: 'auto', posText: 'الزر الأوسط الأيمن (رمز القبة Auto Inverter)',
+        presses: 4, code: '4-2', ar: 'أصابع الجبنة المقلية المجمدة', pl: 'Paluszki serowe',
+        tray: 'الصينية السوداء (Crispy Tablett) فوق الصحن الزجاجي',
+        steps: [
+          'اضغط <strong>الزر الأوسط الأيمن (Auto Inverter)</strong> <strong>4 مرات</strong> ليظهر رقم <code>4</code>.',
+          '<strong>لف القرص لليمين (+)</strong> للكود <code>4-2</code>، ثم اضغط <strong>زر البرق</strong> وحدد الوزن.'
+        ]
+      },
+
+      // MANUAL MODES (Top-Left Button)
+      {
+        id: 'man1', cat: ['manual'], icon: '⚡🍲', btn: 'mode', posText: 'الزر العلوي الأيسر (مربعا الموجات والشواية)',
+        presses: 1, code: '1000W', ar: 'تسخين المايكرويف اليومي (5 مستويات طاقة)', pl: 'Gotowanie na czas',
+        tray: 'الصحن الزجاجي الدوار فقط (بدون أي معدن)',
+        steps: [
+          '<strong>للتسخين الفوري (أسهل طريقة):</strong> اضغط مباشرة على <strong>زر البرق الأبيض (تحت على اليمين)</strong> ليبدأ فوراً لمدة 30 ثانية بقوة 1000W.',
+          '<strong>لتحديد قوة أقل (800W / 600W / 400W / 200W):</strong> اضغط <strong>الزر العلوي الأيسر</strong> مرة واحدة ⬅️ لف القرص لاختيار القوة واضغط زر البرق ⬅️ لف القرص لتحديد الوقت واضغط زر البرق.'
+        ]
+      },
+      {
+        id: 'man2', cat: ['manual'], icon: '🔥', btn: 'mode', posText: 'الزر العلوي الأيسر (مربعا الموجات والشواية)',
+        presses: 2, code: 'Gril', ar: 'تشغيل شواية الكوارتز العلوية فقط (900W)', pl: 'Grillowanie',
+        tray: 'الشبك المعدني الدائري (Rost) فوق الصحن الزجاجي',
+        steps: [
+          'ضع الطعام على <strong>الشبك المعدني الدائري (Rost)</strong> ليرتفع نحو الشواية.',
+          'اضغط <strong>الزر العلوي الأيسر (مربعا الموجات والشواية)</strong> <strong>مرتين</strong> حتى يظهر رمز الشواية.',
+          'اضغط <strong>زر البرق (تحت يمين)</strong>، ثم لف القرص لتحديد وقت الشوي واضغط <strong>زر البرق</strong>.'
+        ]
+      },
+      {
+        id: 'man3', cat: ['manual'], icon: '〰️🔥', btn: 'mode', posText: 'الزر العلوي الأيسر (مربعا الموجات والشواية)',
+        presses: 3, code: 'Co-1', ar: 'طبخ مشترك (مايكرويف + شواية معاً)', pl: 'Grillowanie kombi. Gotowanie',
+        tray: 'الشبك المعدني أو الصينية السوداء (Crispy Tablett)',
+        steps: [
+          'اضغط <strong>الزر العلوي الأيسر</strong> <strong>3 مرات</strong>.',
+          'لف القرص لاختيار مستوى الدمج واضغط <strong>زر البرق (تحت يمين)</strong>، ثم حدد الوقت بالقرص واضغط <strong>زر البرق</strong>.'
+        ]
+      },
+
+      // MELT & YOGURT
+      {
+        id: 'auto3-1', cat: ['melt'], icon: '🧀', btn: 'auto', posText: 'الزر الأوسط الأيمن (رمز القبة Auto Inverter)',
+        presses: 3, code: '3-1', ar: 'تذويب الجبنة', pl: 'Topienie sera',
+        tray: 'الصحن الزجاجي الدوار فقط',
+        steps: [
+          'اضغط <strong>الزر الأوسط الأيمن (Auto Inverter)</strong> <strong>3 مرات</strong> ليظهر رقم <code>3</code>.',
+          '<strong>لف القرص لليمين (+)</strong> للكود <code>3-1</code>، ثم اضغط <strong>زر البرق</strong> وحدد الوزن.'
+        ]
+      },
+      {
+        id: 'auto3-2', cat: ['melt'], icon: '🍨', btn: 'auto', posText: 'الزر الأوسط الأيمن (رمز القبة Auto Inverter)',
+        presses: 3, code: '3-2', ar: 'تطرية الآيس كريم المتجمد', pl: 'Zmiękczanie lodów',
+        tray: 'الصحن الزجاجي الدوار فقط',
+        steps: [
+          'اضغط <strong>الزر الأوسط الأيمن (Auto Inverter)</strong> <strong>3 مرات</strong> ليظهر رقم <code>3</code>.',
+          '<strong>لف القرص لليمين (+)</strong> للكود <code>3-2</code>، ثم اضغط <strong>زر البرق</strong> وحدد الوزن.'
+        ]
+      },
+      {
+        id: 'auto3-3', cat: ['melt'], icon: '🧈', btn: 'auto', posText: 'الزر الأوسط الأيمن (رمز القبة Auto Inverter)',
+        presses: 3, code: '3-3', ar: 'تذويب الزبدة', pl: 'Topienie masła',
+        tray: 'الصحن الزجاجي الدوار فقط',
+        steps: [
+          'اضغط <strong>الزر الأوسط الأيمن (Auto Inverter)</strong> <strong>3 مرات</strong> ليظهر رقم <code>3</code>.',
+          '<strong>لف القرص لليمين (+)</strong> للكود <code>3-3</code>، ثم اضغط <strong>زر البرق</strong> وحدد الوزن.'
+        ]
+      },
+      {
+        id: 'auto3-4', cat: ['melt'], icon: '🍫', btn: 'auto', posText: 'الزر الأوسط الأيمن (رمز القبة Auto Inverter)',
+        presses: 3, code: '3-4', ar: 'تذويب الشوكولاتة', pl: 'Topienie czekolady',
+        tray: 'الصحن الزجاجي الدوار فقط',
+        steps: [
+          'اضغط <strong>الزر الأوسط الأيمن (Auto Inverter)</strong> <strong>3 مرات</strong> ليظهر رقم <code>3</code>.',
+          '<strong>لف القرص لليمين (+)</strong> للكود <code>3-4</code>، ثم اضغط <strong>زر البرق</strong> وحدد الوزن.'
+        ]
+      },
+      {
+        id: 'auto5', cat: ['melt'], icon: '🥛', btn: 'auto', posText: 'الزر الأوسط الأيمن (رمز القبة Auto Inverter)',
+        presses: 5, code: '5', ar: 'تحضير اللبن الزبادي (Jogurt)', pl: '5: Jogurt',
+        tray: 'الصحن الزجاجي الدوار فقط',
+        steps: [
+          'اضغط <strong>الزر الأوسط الأيمن (Auto Inverter)</strong> <strong>5 مرات متتالية</strong> حتى يظهر الرقم <code>5</code>.',
+          'اضغط <strong>زر البرق الأبيض (تحت يمين)</strong> للتشغيل.'
+        ]
+      },
+      {
+        id: 'auto6', cat: ['melt', 'manual'], icon: '♨️', btn: 'auto', posText: 'الزر الأوسط الأيمن (رمز القبة Auto Inverter)',
+        presses: 6, code: '6', ar: 'حفظ سخونة الطعام (Podgrzewanie)', pl: '6: Podgrzewanie',
+        tray: 'الصحن الزجاجي الدوار فقط',
+        steps: [
+          'اضغط <strong>الزر الأوسط الأيمن (Auto Inverter)</strong> <strong>6 مرات متتالية</strong> حتى يظهر الرقم <code>6</code>.',
+          'اضغط <strong>زر البرق الأبيض (تحت يمين)</strong> للتشغيل.'
+        ]
+      }
+    ];
+
+    function highlightOnModel(progId) {
+      const p = programsData.find(x => x.id === progId);
+      if (!p) return;
+
+      // Update LED & Door preview
+      document.getElementById('ledScreen').innerText = p.code;
+      document.getElementById('ledArabicHint').innerText = p.ar;
+      document.getElementById('insideTrayIcon').innerText = p.icon;
+      document.getElementById('insideTrayText').innerText = p.tray;
+
+      // Reset all buttons
+      ['mode', 'defrost', 'fry', 'auto', 'stop', 'start'].forEach(k => {
+        const el = document.getElementById('btn-phys-' + k);
+        if (el) el.classList.remove('active-glow', 'pulse-target');
+        const bdg = document.getElementById('badge-' + k);
+        if (bdg) bdg.classList.add('hidden');
+      });
+
+      // Highlight target physical button
+      const targetBtn = document.getElementById('btn-phys-' + p.btn);
+      const targetBadge = document.getElementById('badge-' + p.btn);
+      if (targetBtn) targetBtn.classList.add('active-glow', 'pulse-target');
+      if (targetBadge) {
+        targetBadge.classList.remove('hidden');
+        targetBadge.innerText = p.presses === 1 ? 'اضغط 1 مرة' : `اضغط ${p.presses} مرات`;
+      }
+
+      // Rotate knob slightly for visual feedback
+      turnDial(1, true);
+
+      // Update steps box
+      document.getElementById('liveStepsBox').innerHTML = `
+        <div class="flex items-center justify-between border-b border-slate-800 pb-1.5">
+          <span class="font-black text-sm text-emerald-400">${p.icon} ${p.ar}</span>
+          <span class="bg-sky-500/20 text-sky-300 border border-sky-500/40 font-mono font-bold px-2.5 py-0.5 rounded text-xs">${p.code}</span>
+        </div>
+        <div class="text-[11px] text-amber-300">
+          📍 <strong>مكان الزر الحقيقي:</strong> ${p.posText} | 🍽️ <strong>القطعة المستخدمة:</strong> ${p.tray}
+        </div>
+        <ol class="list-decimal list-inside space-y-1 text-slate-200 leading-relaxed pt-1">
+          ${p.steps.map(s => `<li>${s}</li>`).join('')}
+        </ol>
+      `;
+    }
+
+    function renderList(items) {
+      const container = document.getElementById('cardsList');
+      container.innerHTML = items.map(p => `
+        <div onclick="highlightOnModel('${p.id}'); window.scrollTo({top: 0, behavior: 'smooth'});"
+          class="bg-slate-900 hover:bg-slate-800 border border-slate-800 hover:border-sky-500 rounded-2xl p-3.5 cursor-pointer transition shadow">
+          <div class="flex items-center justify-between mb-1">
+            <span class="font-extrabold text-sm text-white">${p.icon} ${p.ar}</span>
+            <span class="bg-sky-600/20 text-sky-300 border border-sky-500/40 font-mono font-black px-2.5 py-0.5 rounded-lg text-xs">${p.code}</span>
+          </div>
+          <div class="text-[11px] text-slate-400 mb-1.5">📍 ${p.posText} — (${p.pl})</div>
+          <div class="text-[11px] text-emerald-400 font-bold">اضغط هنا لإضاءة الزر على المجسم بالأعلى ⬆️</div>
+        </div>
+      `).join('');
+
+      if (items.length > 0) highlightOnModel(items[0].id);
+    }
+
+    function filterCategory(cat, btnEl) {
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      if (btnEl) btnEl.classList.add('active');
+      const filtered = programsData.filter(p => p.cat.includes(cat));
+      renderList(filtered);
+    }
+
+    function showAllPrograms() {
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      renderList(programsData);
+    }
+
+    function panelButtonClick(btnKey) {
+      const matching = programsData.filter(p => p.btn === btnKey);
+      renderList(matching);
+    }
+
+    function turnDial(dir, silent) {
+      knobRotation += dir * 30;
+      document.getElementById('knobElement').style.transform = `rotate(${knobRotation}deg)`;
+      if (!silent) {
+        document.getElementById('dialInstruction').innerText = dir > 0
+          ? 'تم لف القرص لليمين (+) لزيادة الرقم أو الوزن'
+          : 'تم لف القرص لليسار (-) لإنقاص الرقم أو الوزن';
+      }
+    }
+
+    function pressStopButton() {
+      document.getElementById('ledScreen').innerText = '0';
+      document.getElementById('ledArabicHint').innerText = 'تم تصفير الشاشة (Stop / Clear)';
+      ['mode', 'defrost', 'fry', 'auto'].forEach(k => {
+        document.getElementById('btn-phys-' + k).classList.remove('active-glow', 'pulse-target');
+        document.getElementById('badge-' + k).classList.add('hidden');
+      });
+    }
+
+    function pressStartButton() {
+      document.getElementById('ledScreen').innerText = '0:30';
+      document.getElementById('ledArabicHint').innerText = 'تشغيل فوري 30 ثانية (1000W) / تأكيد';
+    }
+
+    function toggleFullDoor() {
+      const door = document.getElementById('mwDoor');
+      door.classList.toggle('hidden');
+      door.classList.toggle('flex');
+    }
+
+    function toggleSpecsModal() {
+      document.getElementById('specsModal').classList.toggle('hidden');
+    }
+
+    document.getElementById('quickSearch').addEventListener('input', (e) => {
+      const q = e.target.value.trim().toLowerCase();
+      if (!q) { showAllPrograms(); return; }
+      const filtered = programsData.filter(p =>
+        p.ar.toLowerCase().includes(q) ||
+        p.pl.toLowerCase().includes(q) ||
+        p.code.toLowerCase().includes(q)
+      );
+      renderList(filtered);
+    });
+
+    // Initial load
+    filterCategory('fish', document.querySelector('.tab-btn'));
+  </script>
+</body>
+</html>
